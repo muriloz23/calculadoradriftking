@@ -238,12 +238,12 @@
             var carroId = document.getElementById('carroId').value;
             var clienteId = document.getElementById('clienteId').value;
     
-            var selectedButtons = document.querySelectorAll('.button.disabled');
+            var selectedButtons = document.querySelectorAll('.button.disabled');    
             var tunagensText = Array.from(selectedButtons).map(function(button) {
                 return `${button.innerText}\n`;
             }).join('');
     
-            var clipboardText = `**🧑‍🔧Mecânico:** ${tunadorId}\n**🚗Modelo Do Carro:** ${carroId}\n**🆔ID do Cliente:**${clienteId}\n\n${tunagensText}`;
+            var clipboardText = `**🧑‍🔧Mecânico:** ${tunadorId}\n**🚗Modelo Do Carro:** ${carroId}\n**🆔ID do Cliente:**${clienteId}\n\n**🛠️Tunagens**${tunagensText}`;
     
             var textarea = document.createElement('textarea');
             textarea.value = clipboardText;
