@@ -8,7 +8,11 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #7c7c7c;
+            background-image: url('https://cdn.discordapp.com/attachments/1163541644377858079/1167068504692883516/fundo_rlk.png?ex=65c4c0be&is=65b24bbe&hm=ed52e1a1f5e39536173d7797e8dfe49847e34782cc8c7f6f90a424f2bf8a59a0&');
+            background-size: cover;
+            /* ou 'contain', dependendo do efeito desejado */
+            background-position: center center;
+            background-repeat: no-repeat;
             margin: 0;
             padding: 0;
             color: #000;
@@ -30,8 +34,8 @@
         }
 
         #calculator {
-            background-image: url('https://wallpapers.com/images/hd/plain-black-desktop-2560-x-1440-ugpl0479gu0vuwnl.jpg');
-            background-repeat: no-repeat;
+           
+         
             background-size: cover;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -125,11 +129,12 @@
 <body>
     <header>
 
-        <a href="https://discord.gg/Ay4AjtKt7S">  <img src="https://cdn.discordapp.com/icons/1198431043087257771/80f1d88f3cf76fac4d00916fd9196396.webp?size=1024&format=webp&width=0&height=256"
-         alt="" height="220"></a>
- 
- 
-     </header>
+        <a href="https://discord.gg/Ay4AjtKt7S"> <img
+                src="https://cdn.discordapp.com/icons/1198431043087257771/80f1d88f3cf76fac4d00916fd9196396.webp?size=1024&format=webp&width=0&height=256"
+                alt="" height="220"></a>
+
+
+    </header>
 
     <div id="calculator-container">
         <div id="calculator">
@@ -158,7 +163,7 @@
                     <div class="button" onclick="toggleButton(this, 100000)">Suspensão4 (+R100000)</div>
                     <div class="button" onclick="toggleButton(this, 10000)">Aerofólio (+R$10000)</div>
                     <div class="button" onclick="toggleButton(this, 10000)">Parachoque Dianteiro (+R$10000)</div>
-                    <div class="button" onclick="toggleButton(this, 10000)">Parachoque Traseir (+R$10000)</div>                     
+                    <div class="button" onclick="toggleButton(this, 10000)">Parachoque Traseir (+R$10000)</div>
                     <div class="button" onclick="toggleButton(this, 10000)">Saias (+R$10000)</div>
                     <div class="button" onclick="toggleButton(this, 10000)">Escapamento (+R$10000)</div>
                     <div class="button" onclick="toggleButton(this, 10000)">Capô (+R$10000)</div>
@@ -182,84 +187,84 @@
                     <div class="button" onclick="toggleButton(this, 25000)">Xenon (+R$25000)</div>
                     <div class="button" onclick="toggleButton(this, 15000)">Neon Cor (+R$15000)</div>
                     <div class="button" onclick="toggleButton(this, 15000)">Xenon Cor (+R$15000)</div>
-                    
-                    
-                    
-                    </div>
-                </div>
 
-                <label for="total">Total:</label>
-                <input type="text" id="total" readonly>
-                <p>
-                    <button class="button total-button" onclick="copyToClipboard()">Copiar Tunagem</button>
-                </p>
+
+
+                </div>
             </div>
 
-            
-
-    <script>
-        function toggleButton(button, valor) {
-                        var totalInput = document.getElementById('total');
-                        var totalValue = parseFloat(totalInput.value.replace('R$: ', '')) || 0;
-
-                        // Se o botão já estiver desabilitado, subtrair o valor, caso contrário, adicionar o valor
-                        totalValue = button.classList.contains('disabled') ? totalValue - valor : totalValue + valor;
-
-                        // Atualizar o valor total e o estado do botão
-                        totalInput.value = 'R$: ' + Math.max(0, totalValue).toFixed(0);
-                        button.classList.toggle('disabled');
-                    }
-
-                    // Função que mostra a calculadora ao carregar a página
-                    window.onload = function () {
-                        showCalculator();
-                    };
-                </script>
+            <label for="total">Total:</label>
+            <input type="text" id="total" readonly>
+            <p>
+                <button class="button total-button" onclick="copyToClipboard()">Copiar Tunagem</button>
+            </p>
         </div>
+
+
+
+        <script>
+            function toggleButton(button, valor) {
+                var totalInput = document.getElementById('total');
+                var totalValue = parseFloat(totalInput.value.replace('R$: ', '')) || 0;
+
+                // Se o botão já estiver desabilitado, subtrair o valor, caso contrário, adicionar o valor
+                totalValue = button.classList.contains('disabled') ? totalValue - valor : totalValue + valor;
+
+                // Atualizar o valor total e o estado do botão
+                totalInput.value = 'R$: ' + Math.max(0, totalValue).toFixed(0);
+                button.classList.toggle('disabled');
+            }
+
+            // Função que mostra a calculadora ao carregar a página
+            window.onload = function () {
+                showCalculator();
+            };
+        </script>
+    </div>
     </div>
 
-    
+
 
     <script>
         function toggleButton(button, valor) {
             var totalInput = document.getElementById('total');
             var totalValue = parseFloat(totalInput.value.replace('R$: ', '')) || 0;
-    
+
             // Se o botão já estiver desabilitado, subtrair o valor, caso contrário, adicionar o valor
             totalValue = button.classList.contains('disabled') ? totalValue - valor : totalValue + valor;
-    
+
             // Atualizar o valor total e o estado do botão
             totalInput.value = 'R$: ' + Math.max(0, totalValue).toFixed(0);
             button.classList.toggle('disabled');
         }
-    
+
         function copyToClipboard() {
             var tunadorId = document.getElementById('tunadorId').value;
             var carroId = document.getElementById('carroId').value;
             var clienteId = document.getElementById('clienteId').value;
-    
-            var selectedButtons = document.querySelectorAll('.button.disabled');    
-            var tunagensText = Array.from(selectedButtons).map(function(button) {
+
+            var selectedButtons = document.querySelectorAll('.button.disabled');
+            var tunagensText = Array.from(selectedButtons).map(function (button) {
                 return `${button.innerText}\n`;
             }).join('');
-    
+
             var clipboardText = `**🧑‍🔧 Mecânico:** ${tunadorId}\n**🚗 Modelo Do Carro:** ${carroId}\n**🆔 ID do Cliente:**${clienteId}\n\n${tunagensText}`;
-    
+
             var textarea = document.createElement('textarea');
             textarea.value = clipboardText;
             document.body.appendChild(textarea);
             textarea.select();
             document.execCommand('copy');
             document.body.removeChild(textarea);
-    
+
             alert('Texto copiado para a Área de Transferência!');
         }
-    
+
         window.onload = function () {
             showCalculator();
         };
     </script>
-    
+
 </body>
 
 </html>
